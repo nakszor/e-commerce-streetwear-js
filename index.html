@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="plataforma E-commerce Weartake" />
+    <title>Weartake</title>
+    <link rel="stylesheet" href="./css/colors.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/cardStyle.css" />
+    <link rel="stylesheet" href="./css/cartCardStyle.css" />
+    <link rel="stylesheet" href="./css/searchBarStyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./js/database.js"></script>
+    <script defer src="./js/index.js"></script>
+  </head>
+  <body class="body">
+    <header class="header">
+      <div class="header-container">
+        <h1>StreetWear</h1>
+        <ul class="lista">
+          <li><a class="lista-itens" href="">Todos</a></li>
+          <li><a class="lista-itens" href="">Acessórios</a></li>
+          <li><a class="lista-itens" href="">Calçados</a></li>
+          <li><a class="lista-itens" href="">Camisetas</a></li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main-container">
+        <form class="form-mobile">
+          <input class="input-mobile" />
+          <button class="button-mobile">Pesquisar</button>
+        </form>
+        <section>
+          <ul class="lista-cards"></ul>
+        </section>
+        <section class="form-cart">
+          <form class="form">
+            <input class="input" />
+            <button class="button">Pesquisar</button>
+          </form>
+          <div class="carrinho">
+            <div class="carrinho-titulo">
+              <h2>Carrinho de Compras</h2>
+            </div>
+            <div class="cart radius"></div>
+            <div class="total">
+              <p>Total</p>
+              <p class="value"></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
