@@ -2,7 +2,7 @@ const tagUl = document.querySelector(".lista-cards");
 const tagMain = document.querySelector(".main");
 let cartDiv = document.querySelector(".cart");
 const ulCart = document.getElementsByClassName("cart-ul");
-let totalCart = document.getElementsByClassName("value");
+const cartSession = document.querySelector(".total")
 let cartData = [];
 let filtered = [];
 function createList(array) {
@@ -59,14 +59,32 @@ function createCard(object) {
 
   return li;
 }
+const showValue = document.createElement("p")
 
 function sum(arr) {
   let valor = 0;
   const total = arr.forEach((elem) => (valor += elem.value));
-  totalCart.innerText = valor.toLocaleString("pt-br", {
+  createTotal(valor)
+}
+function createTotal(value) {
+  if(value === 0){
+   return cartSession.innerHTML = ""
+  }
+  cartSession.innerHTML = ""
+  
+  const text = document.createElement('p')
+  const total = document.createElement('p')
+  
+  text.innerHTML = "Total"
+  total.innerHTML = value.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
   });
+  
+  total.classList.add('value')
+ 
+  cartSession.append(text, total)
+
 }
 
 function createMiniCards(cart) {
