@@ -3,17 +3,20 @@ const tagMain = document.querySelector(".main");
 let cartDiv = document.querySelector(".cart");
 const ulCart = document.getElementsByClassName("cart-ul");
 const cartSession = document.querySelector(".total")
+const showValue = document.createElement("p")
+
 let cartData = [];
 let filtered = [];
+
 function createList(array) {
   array.forEach((elem) => {
-    const list = createCard(elem);
+    const list = createCards(elem);
     tagUl.append(list);
   });
 }
 createList(data);
 
-function createCard(object) {
+function createCards(object){
   const img = document.createElement("img");
   const divImg = document.createElement("div");
 
@@ -47,10 +50,17 @@ function createCard(object) {
   li.classList.add("card-style");
 
   button.addEventListener("click", function () {
-    cartData.push(object);
-    filtered = [...new Set(cartData)];
-    createMiniCards(filtered);
-    sum(cartData);
+    const search = cartData.find((elem) => elem.id === object.id)
+   if(!search){
+      filtered.push(object)
+      cartData.push(object)
+      sum(cartData) 
+      console.log('iii')
+     return createMiniCards(filtered,object)
+   }
+      cartData.push(object)
+      createMiniCards(filtered, object)
+      sum(cartData);
   });
 
   divImg.append(img);
@@ -59,13 +69,14 @@ function createCard(object) {
 
   return li;
 }
-const showValue = document.createElement("p")
 
 function sum(arr) {
   let valor = 0;
   const total = arr.forEach((elem) => (valor += elem.value));
   createTotal(valor)
 }
+
+
 function createTotal(value) {
   if(value === 0){
    return cartSession.innerHTML = ""
@@ -87,7 +98,8 @@ function createTotal(value) {
 
 }
 
-function createMiniCards(cart) {
+function createMiniCards(cart, object){
+
   const ul = document.createElement("ul");
   ul.innerHTML = "";
   cartDiv.innerHTML = "";
@@ -109,9 +121,14 @@ function createMiniCards(cart) {
       style: "currency",
       currency: "BRL",
     });
-    quantity.innerHTML = "1x";
+    
     trash.src = "./img/trash.png";
-
+    if(object.id === elem.id){
+      elem.repeat = elem.repeat + 1
+    quantity.innerHTML = elem.repeat
+    }
+    quantity.innerHTML = elem.repeat
+    
     var id = elem.id;
 
     li.classList.add("cart-li");
@@ -126,9 +143,7 @@ function createMiniCards(cart) {
       const index = filtered.findIndex((elem) => elem.id === id);
       filtered.splice(index, 1);
       const index2 = cartData.findIndex((elem) => elem.id === id);
-
       cartData.splice(index2, 1);
-
       sum(cartData);
       createMiniCards(filtered);
     });
@@ -141,3 +156,4 @@ function createMiniCards(cart) {
     cartDiv.appendChild(ul);
   });
 }
+
