@@ -141,21 +141,23 @@ function createMiniCards(cart, object){
 
     trash.addEventListener("click", function () {
       if(object.repeat === 1){
-        const index = filtered.findIndex((elem) => elem.id === id);
+        console.log(cartData)
+        const index = filtered.findIndex((elem) => elem.id === object.id);
           filtered.splice(index, 1);
 
-        const index2 = cartData.findIndex((elem) => elem.id === id);
+        const index2 = cartData.findIndex((elem) => elem.id === object.id);
           cartData.splice(index2, 1);
 
+      createMiniCards(filtered, object);
       sum(cartData);
-      createMiniCards(filtered);
       }
       else{
+        console.log(cartData, 'aaaaaaa')
         object.repeat = object.repeat - 1
         quantity.innerHTML = elem.repeat
-        const index2 = cartData.findIndex((elem) => elem.id === id);
+        const index2 = cartData.findIndex((elem) => elem.id === object.id);
           cartData.splice(index2, 1);
-
+         
       sum(cartData);
       }
       
