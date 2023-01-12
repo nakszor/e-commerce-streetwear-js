@@ -90,6 +90,9 @@ main {
   .header-container {
     flex-direction: column;
   }
+  .lista{
+    display: none;
+  }
   .main-container {
     flex-direction: column;
     gap: 4vh;
