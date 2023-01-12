@@ -17,6 +17,7 @@ function createList(array) {
 createList(data);
 
 function createCards(object){
+  
   const img = document.createElement("img");
   const divImg = document.createElement("div");
 
@@ -51,16 +52,17 @@ function createCards(object){
 
   button.addEventListener("click", function () {
     const search = cartData.find((elem) => elem.id === object.id)
+    
    if(!search){
       filtered.push(object)
       cartData.push(object)
       sum(cartData) 
-      console.log('iii')
-     return createMiniCards(filtered,object)
+     return createMiniCards(filtered, object)
    }
       cartData.push(object)
-      createMiniCards(filtered, object)
+      createMiniCards(filtered,object)
       sum(cartData);
+     
   });
 
   divImg.append(img);
@@ -128,8 +130,6 @@ function createMiniCards(cart, object){
     quantity.innerHTML = elem.repeat
     }
     quantity.innerHTML = elem.repeat
-    
-    var id = elem.id;
 
     li.classList.add("cart-li");
     img.classList.add("img-cart-card");
@@ -141,22 +141,23 @@ function createMiniCards(cart, object){
 
     trash.addEventListener("click", function () {
       if(object.repeat === 1){
-        console.log(cartData)
+        object.repeat = 0
         const index = filtered.findIndex((elem) => elem.id === object.id);
           filtered.splice(index, 1);
 
         const index2 = cartData.findIndex((elem) => elem.id === object.id);
           cartData.splice(index2, 1);
-
-      createMiniCards(filtered, object);
+         
+      
       sum(cartData);
+      createMiniCards(filtered, filtered[0])
       }
       else{
-        console.log(cartData, 'aaaaaaa')
+        
         object.repeat = object.repeat - 1
         quantity.innerHTML = elem.repeat
         const index2 = cartData.findIndex((elem) => elem.id === object.id);
-          cartData.splice(index2, 1);
+        cartData.splice(index2, 1);
          
       sum(cartData);
       }
