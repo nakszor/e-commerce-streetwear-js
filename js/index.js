@@ -140,12 +140,25 @@ function createMiniCards(cart, object){
     quantity.classList.add("quantity");
 
     trash.addEventListener("click", function () {
-      const index = filtered.findIndex((elem) => elem.id === id);
-      filtered.splice(index, 1);
-      const index2 = cartData.findIndex((elem) => elem.id === id);
-      cartData.splice(index2, 1);
+      if(object.repeat === 1){
+        const index = filtered.findIndex((elem) => elem.id === id);
+          filtered.splice(index, 1);
+
+        const index2 = cartData.findIndex((elem) => elem.id === id);
+          cartData.splice(index2, 1);
+
       sum(cartData);
       createMiniCards(filtered);
+      }
+      else{
+        object.repeat = object.repeat - 1
+        quantity.innerHTML = elem.repeat
+        const index2 = cartData.findIndex((elem) => elem.id === id);
+          cartData.splice(index2, 1);
+
+      sum(cartData);
+      }
+      
     });
 
     div2.append(price, quantity, trash);
