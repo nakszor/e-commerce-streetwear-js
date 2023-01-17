@@ -147,12 +147,13 @@ function createMiniCards(cart, object, key){
     quantity.classList.add("quantity");
 
     trash.addEventListener("click", function () {
-      if(object.repeat === 1){
-        object.repeat = 0
-        const index = filtered.findIndex((elem) => elem.id === object.id);
+      if(elem.repeat === 1){
+        elem.repeat = 0
+        
+        const index = filtered.findIndex((el) => el.id === elem.id);
           filtered.splice(index, 1);
 
-        const index2 = cartData.findIndex((elem) => elem.id === object.id);
+        const index2 = cartData.findIndex((el) => el.id === elem.id);
           cartData.splice(index2, 1);
          
       
@@ -161,9 +162,9 @@ function createMiniCards(cart, object, key){
       }
       else{
         
-        object.repeat = object.repeat - 1
+        elem.repeat--
         quantity.innerHTML = elem.repeat
-        const index2 = cartData.findIndex((elem) => elem.id === object.id);
+        const index2 = cartData.findIndex((el) => el.id === elem.id);
         cartData.splice(index2, 1);
          
       sum(cartData);
