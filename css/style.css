@@ -136,5 +136,7 @@ footer{
     width: 10px;
     border-radius: 2px;
   }
-  
+  footer{
+    margin-top: 0;
+  }
 }
