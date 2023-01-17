@@ -9,6 +9,7 @@ let cartData = [];
 let filtered = [];
 
 function createList(array) {
+  tagUl.innerHTML = ""
   array.forEach((elem) => {
     const list = createCards(elem);
     tagUl.append(list);
@@ -181,3 +182,21 @@ function createMiniCards(cart, object, key){
   });
 }
 
+// SECTIONS 
+
+const list = document.querySelector(".lista")
+
+list.addEventListener("click", (event)=>{
+  event.preventDefault()
+  
+  const clickEvent = event.target.innerText
+ 
+  if(clickEvent === "Todos"){
+    createList(data)
+  }
+  if(clickEvent === "Calçados"){
+    return 0 // criar função 
+  }
+  const sections = data.filter(elem => elem.tag[0] === clickEvent)
+  createList(sections)
+})
