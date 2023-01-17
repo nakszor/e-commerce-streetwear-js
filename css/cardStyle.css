@@ -1,8 +1,9 @@
 .card-style {
   justify-content: center;
-  width: 280px;
+  width: 250px;
   gap: 10px;
   border: solid 2px var(--grey1);
+  border-radius: 8px;
 }
 .card-style:hover {
   border: solid 2px var(--secondary-color);
@@ -12,6 +13,8 @@
   height: 154px;
 }
 .div-img {
+  border-top-left-radius: 8px ;
+  border-top-right-radius: 8px ;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +42,7 @@
 }
 .product-description {
   margin-left: 9px;
-  width: 255px;
+  max-width: 250px;
   height: 72px;
   color: #242424;
   font-weight: 400;
