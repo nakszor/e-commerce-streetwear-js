@@ -57,10 +57,10 @@ function createCards(object){
       filtered.push(object)
       cartData.push(object)
       sum(cartData) 
-     return createMiniCards(filtered, object)
+     return createMiniCards(filtered, object, 1)
    }
       cartData.push(object)
-      createMiniCards(filtered,object)
+      createMiniCards(filtered,object,1)
       sum(cartData);
      
   });
@@ -100,7 +100,7 @@ function createTotal(value) {
 
 }
 
-function createMiniCards(cart, object){
+function createMiniCards(cart, object, key){
 
   const ul = document.createElement("ul");
   ul.innerHTML = "";
@@ -125,11 +125,18 @@ function createMiniCards(cart, object){
     });
     
     trash.src = "./img/trash.png";
-    if(object.id === elem.id){
+    console.log(key)
+    if (key === 1 && object.id === elem.id){
+     console.log(key)
       elem.repeat = elem.repeat + 1
-    quantity.innerHTML = elem.repeat
+      quantity.innerHTML = elem.repeat
+      
+      quantity.innerHTML = elem.repeat
     }
-    quantity.innerHTML = elem.repeat
+    else{
+      quantity.innerHTML = elem.repeat
+    }
+    
 
     li.classList.add("cart-li");
     img.classList.add("img-cart-card");
@@ -150,7 +157,7 @@ function createMiniCards(cart, object){
          
       
       sum(cartData);
-      createMiniCards(filtered, filtered[0])
+      createMiniCards(filtered, filtered[0],0)
       }
       else{
         
