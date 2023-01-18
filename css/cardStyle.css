@@ -74,7 +74,12 @@
   flex-wrap: wrap;
   gap: 5vh;
   margin-top: 5vh;
-  
+  min-width: 200px;
+}
+.message{
+  height: 20vh;
+  width: 40vw;
+  display: flex;
 }
 @media (max-width: 1020px) {
   .product-description {

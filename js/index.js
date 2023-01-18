@@ -195,8 +195,21 @@ list.addEventListener("click", (event)=>{
     return createList(data)
   }
   if(clickEvent === "Calçados"){
-    return console.log('Parte a ser construída...') 
+   return searchError()
   }
   const sections = data.filter(elem => elem.tag[0] === clickEvent)
   return createList(sections)
 })
+
+const searchError = () =>{
+  tagUl.innerHTML = ""
+  const divMessage = document.createElement("div")
+  const message = document.createElement("h2")
+
+  divMessage.classList.add("message")
+
+  message.innerText = "Produto não encontrado!"
+
+  divMessage.append(message)
+ return tagUl.append(divMessage)
+} 

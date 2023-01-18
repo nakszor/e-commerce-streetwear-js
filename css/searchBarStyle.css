@@ -5,7 +5,7 @@
   height: 35px;
 }
 .input {
-  width: 70%;
+  width: 10rem;
   height: 90%;
   border: none;
   background-color: var(--grey1);
