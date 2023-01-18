@@ -9,6 +9,7 @@ let cartData = [];
 let filtered = [];
 
 function createList(array) {
+  console.log(array)
   tagUl.innerHTML = ""
   array.forEach((elem) => {
     const list = createCards(elem);
@@ -192,11 +193,11 @@ list.addEventListener("click", (event)=>{
   const clickEvent = event.target.innerText
  
   if(clickEvent === "Todos"){
-    createList(data)
+    return createList(data)
   }
   if(clickEvent === "Calçados"){
-    return 0 // criar função 
+    return console.log('Parte a ser construída...') 
   }
   const sections = data.filter(elem => elem.tag[0] === clickEvent)
-  createList(sections)
+  return createList(sections)
 })
