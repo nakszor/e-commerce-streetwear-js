@@ -224,14 +224,14 @@ const inputMobile = document.querySelector(".input-mobile")
 
 formDesktop.addEventListener("submit", (event)=>{
   event.preventDefault()
-  callbackSearch()
+  callbackSearch(formDesktop)
 })
 formMobile.addEventListener("submit", (event)=>{
   event.preventDefault()
-  callbackSearch()
+  callbackSearch(formMobile)
 })
-function callbackSearch() {
-  const values = [...formDesktop]
+function callbackSearch(form) {
+  const values = [...form]
   const inputValue = values[0].value
   if(!inputValue){
     return createList(data)
