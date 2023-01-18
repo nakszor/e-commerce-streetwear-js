@@ -213,3 +213,33 @@ const searchError = () =>{
   divMessage.append(message)
  return tagUl.append(divMessage)
 } 
+
+// SEARCH BAR
+
+const formDesktop = document.querySelector(".form")
+const formMobile = document.querySelector(".form-mobile")
+
+const inputDesktop = document.querySelector(".input")
+const inputMobile = document.querySelector(".input-mobile")
+
+formDesktop.addEventListener("submit", (event)=>{
+  event.preventDefault()
+  callbackSearch()
+})
+formMobile.addEventListener("submit", (event)=>{
+  event.preventDefault()
+  callbackSearch()
+})
+function callbackSearch() {
+  const values = [...formDesktop]
+  const inputValue = values[0].value
+  if(!inputValue){
+    return createList(data)
+  }
+  const filter = data.filter(
+  (elem) => elem.nameItem.toLowerCase().includes(inputValue) || elem.tag[0].toLowerCase().includes(inputValue))
+  if(!filter){
+    return searchError()
+  }
+  return createList(filter)
+}
