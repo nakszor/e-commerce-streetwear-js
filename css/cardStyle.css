@@ -74,6 +74,7 @@
   flex-wrap: wrap;
   gap: 5vh;
   margin-top: 5vh;
+  
 }
 @media (max-width: 1020px) {
   .product-description {

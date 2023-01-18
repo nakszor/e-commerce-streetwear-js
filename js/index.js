@@ -9,7 +9,6 @@ let cartData = [];
 let filtered = [];
 
 function createList(array) {
-  console.log(array)
   tagUl.innerHTML = ""
   array.forEach((elem) => {
     const list = createCards(elem);
@@ -127,9 +126,9 @@ function createMiniCards(cart, object, key){
     });
     
     trash.src = "./img/trash.png";
-    console.log(key)
+   
     if (key === 1 && object.id === elem.id){
-     console.log(key)
+    
       elem.repeat = elem.repeat + 1
       quantity.innerHTML = elem.repeat
       
