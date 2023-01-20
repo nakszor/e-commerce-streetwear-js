@@ -238,7 +238,7 @@ function callbackSearch(form) {
   }
   const filter = data.filter(
   (elem) => elem.nameItem.toLowerCase().includes(inputValue) || elem.tag[0].toLowerCase().includes(inputValue))
-  if(!filter){
+  if(!filter || !filter[0]){
     return searchError()
   }
   return createList(filter)
