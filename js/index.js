@@ -147,7 +147,10 @@ function createMiniCards(cart, object, key){
     price.classList.add("price");
     quantity.classList.add("quantity");
 
-    trash.addEventListener("click", function () {
+    trash.addEventListener("click", function (event) {
+      const button = event.target
+      //const li = button.closest("li")
+      console.log(button)
       if(elem.repeat === 1){
         elem.repeat = 0
         
